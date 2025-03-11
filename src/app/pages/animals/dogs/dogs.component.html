@@ -1,0 +1,7 @@
+<div class="animals-grid">
+    <div class="animal-card" *ngFor="let dog of dogs" (click)="goToProfile(dog.id)">
+      <img [src]="dog.image" [alt]="dog.name">
+      <p>{{ dog.name }}</p>
+    </div>
+  </div>
+  

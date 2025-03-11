@@ -1,0 +1,75 @@
+/* AuthComponent stílusok */
+.card {
+    border: none;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    margin: 0 auto;
+    max-width: 600px;  /* Maximális szélesség 600px */
+    margin-top: 80px; /* Ez a navbar magasságához igazítható */
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-label {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding: 12px 15px;
+    margin-bottom: 15px;  /* Tördeljük el a mezőket, hogy legyen hely közöttük */
+}
+
+.form-control-lg {
+    font-size: 1.1rem;
+}
+
+.btn {
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    padding: 12px;
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-primary:hover {
+    background-color: #004085;
+    border-color: #004085;
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #6c757d;
+    color: #333;
+}
+
+hr.my-4 {
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Responsív Design - Mobil eszközökön */
+@media (max-width: 768px) {
+    .card {
+        margin: 0 20px;
+        max-width: 100%;  /* 100%-os szélesség mobilon */
+    }
+}

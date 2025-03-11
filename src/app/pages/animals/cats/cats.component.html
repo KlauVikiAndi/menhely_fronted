@@ -1,0 +1,14 @@
+<!-- A kártyák megjelenítése -->
+<div class="animals-grid">
+  <div class="animal-card" *ngFor="let cat of cats" (click)="goToProfile(cat.id)">
+    <img [src]="cat.image" [alt]="cat.name">
+    <p>{{ cat.name }}</p>
+  </div>
+</div>
+
+<!-- Az állatok listázása -->
+<ul>
+  <li *ngFor="let cat of cats">
+    {{ cat.name }} - {{ cat.type.name }}
+  </li>
+</ul>

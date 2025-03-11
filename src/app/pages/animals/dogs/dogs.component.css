@@ -1,0 +1,29 @@
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Rugalmas elrendezés */
+    gap: 20px; /* Térköz a csempék között */
+    padding: 20px;
+    margin-top: 80px;
+  }
+  
+  .animal-card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .animal-card img {
+    width: 100%; /* A kép kitölti a csempe szélességét */
+    height: auto; /* A kép magassága automatikusan igazodik */
+    border-radius: 5px;
+  }
+  
+  .animal-card p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #333;
+  }
+  

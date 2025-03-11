@@ -1,0 +1,79 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card shadow-sm rounded">
+        <div class="card-body">
+          <h5 class="card-title text-center mb-4">{{ isLogin ? 'Bejelentkezés' : 'Regisztráció' }}</h5>
+
+          <!-- Hibaüzenet -->
+          <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+          <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+          
+          <!-- Bejelentkezési űrlap -->
+          <form *ngIf="isLogin" (submit)="login()">
+            <!-- Név input -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Név</label>
+              <input type="text" class="form-control form-control-lg" id="name" placeholder="Név"
+                     [(ngModel)]="name" name="name" required>
+            </div>
+
+            <!-- Jelszó input -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Jelszó</label>
+              <input type="password" class="form-control form-control-lg" id="password" placeholder="Jelszó"
+                     [(ngModel)]="password" name="password" required>
+            </div>
+
+            <!-- Bejelentkezés gomb -->
+            <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">Bejelentkezés</button>
+
+            <hr class="my-4">
+
+            <!-- Regisztrációra váltás gomb -->
+            <button type="button" class="btn btn-outline-secondary btn-lg w-100" (click)="toggleForm()">Regisztráció</button>
+          </form>
+
+          <!-- Regisztrációs űrlap -->
+          <form *ngIf="!isLogin" (submit)="register()">
+            <!-- Név input -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Név</label>
+              <input type="text" class="form-control form-control-lg" id="name" placeholder="Teljes név"
+                     [(ngModel)]="name" name="name" required>
+            </div>
+
+            <!-- Email input -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email cím</label>
+              <input type="email" class="form-control form-control-lg" id="email" placeholder="Email cím"
+                     [(ngModel)]="email" name="email" required>
+            </div>
+
+            <!-- Jelszó input -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Jelszó</label>
+              <input type="password" class="form-control form-control-lg" id="password" placeholder="Jelszó"
+                     [(ngModel)]="password" name="password" required>
+            </div>
+
+             <!-- Jelszó megerősítés -->
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label">Jelszó megerősítése</label>
+              <input type="password" class="form-control form-control-lg" id="confirm_password" placeholder="Jelszó megerősítése"
+                     [(ngModel)]="confirm_password" name="confirm_password" required>
+            </div>
+
+            <!-- Regisztráció gomb -->
+            <button type="submit" class="btn btn-success btn-lg w-100 mb-3">Regisztráció</button>
+
+            <hr class="my-4">
+
+            <!-- Bejelentkezésre váltás gomb -->
+            <button type="button" class="btn btn-outline-secondary btn-lg w-100" (click)="toggleForm()">Már van fiókom</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

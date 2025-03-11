@@ -1,0 +1,20 @@
+/* Közös stílusok a Cats és Dogs komponensekhez */
+.div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: aqua;
+  }
+  
+  .animal-item {
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+  }
+  
+  .animal-item img {
+    max-width: 100%;
+    height: auto;
+  }
+  
