@@ -1,12 +1,9 @@
 <div class="animals-page">
-    <h1>Animals</h1>
-    <nav>
-      <a routerLink="cats">Cats</a>
-      <a routerLink="dogs">Dogs</a>
-    </nav>
-  
-    <!-- Alútvonalak megjelenítése itt -->
-    <router-outlet></router-outlet>
-  </div>
+  <h1>Animals</h1>
+  <nav>
+    <a routerLink="pets">Örökbefogadható </a> <!-- A "pets" route-hoz -->
+    <a routerLink="search">Keresés</a> <!-- A "search" route-hoz -->
+  </nav>
 
-  
+  <router-outlet></router-outlet> <!-- A route-ok itt fognak megjelenni -->
+</div>

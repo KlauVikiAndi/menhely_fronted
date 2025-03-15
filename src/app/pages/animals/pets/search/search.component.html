@@ -1,0 +1,10 @@
+<input [(ngModel)]="searchQuery" placeholder="Keresés állatra" />
+<button (click)="onSearch()">Keresés</button>
+
+<div class="animals-grid">
+  <div class="animal-card" *ngFor="let result of searchResults">
+    <img [src]="result.image" [alt]="result.name">
+    <p>{{ result.name }}</p>
+    <p>{{ result.type.name === 'dog' ? 'Kutya' : 'Macska' }}</p> <!-- Kutya/Macska szűrés -->
+  </div>
+</div>

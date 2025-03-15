@@ -10,14 +10,12 @@ import { AppComponent } from './app.component';
 import { ProfileModule } from './pages/profile/profile.module'; // ProfileModule importálása
 import { InformationModule } from './pages/information/information.module'; // InformationModule importálása
 import { AnimalsModule } from './pages/animals/animals.module'; // AnimalsModule importálása
-import { CatsComponent } from './pages/animals/cats/cats.component'; // Csak ha közvetlenül itt is használni akarod
-import { DogsComponent } from './pages/animals/dogs/dogs.component'; // Csak ha közvetlenül itt is használni akarod
+import { PetsComponent } from './pages/animals/pets/pets.component'; // Csak ha közvetlenül itt is használni akarod
 import { ContactComponent } from './pages/information/contact/contact.component'; // Csak ha közvetlenül itt is használni akarod
 import { HowitworksComponent } from './pages/information/howitworks/howitworks.component';
 import { AuthComponent } from './auth/auth.component';
-import { CatProfileComponent } from './pages/animals/cats/cat-profile/cat-profile.component'; // Csak ha közvetlenül itt is használni akarod
-import { DogProfileComponent } from './pages/animals/dogs/dog-profile/dog-profile.component';
-
+import { PetProfileComponent } from './pages/animals/pets/pets-profile/pet-profile.component'; // Csak ha közvetlenül itt is használni akarod
+import { SearchComponent } from './pages/animals/pets/search/search.component';
 
 
   const routes: Routes = [
@@ -29,8 +27,8 @@ import { DogProfileComponent } from './pages/animals/dogs/dog-profile/dog-profil
   declarations: [
     AppComponent,
     AuthComponent,
-    CatProfileComponent,
-    DogProfileComponent,
+    PetProfileComponent,
+    //DogProfileComponent,
 
 
     // Ide csak azokat a komponenseket rakd, amelyeket itt használni szeretnél közvetlenül

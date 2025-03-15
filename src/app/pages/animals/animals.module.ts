@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalsComponent } from './animals.component';
-import { CatsComponent } from './cats/cats.component';
-import { DogsComponent } from './dogs/dogs.component';
+import { PetsComponent } from './pets/pets.component';
 import { AnimalsRoutingModule } from './animals-routing.module';
-import { CatsService } from '../../services/cats.service'; // Relatív útvonal
+import { PetsService } from '../../services/pets.service'; // Relatív útvonal
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './pets/search/search.component';
+
 
 
 @NgModule({
-  declarations: [AnimalsComponent, CatsComponent, DogsComponent], // Ide deklarálod az összes komponenst
+  declarations: [AnimalsComponent, PetsComponent, SearchComponent], // Ide deklarálod az összes komponenst
   imports: [
     CommonModule, 
     RouterModule,
-    AnimalsRoutingModule
+    AnimalsRoutingModule,
+    FormsModule,
   ],
-  providers: [CatsService] // Itt deklarálod a szolgáltatást
+  providers: [PetsService] // Itt deklarálod a szolgáltatást
 })
 export class AnimalsModule {}

@@ -1,0 +1,7 @@
+<div class="animals-grid">
+  <div class="animal-card" *ngFor="let pet of pets" (click)="goToProfile(pet.id)">
+    <img [src]="pet.image" [alt]="pet.name">
+    <p>{{ pet.name }}</p>
+    <p>{{ pet.type.name === 'dog' ? 'Kutya' : 'Macska' }}</p> <!-- Itt jelenítheted meg, hogy kutya vagy macska -->
+  </div>
+</div>

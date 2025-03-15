@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimalsComponent } from './animals.component';
-import { CatsComponent } from './cats/cats.component';
-import { DogsComponent } from './dogs/dogs.component';
+import { PetsComponent } from './pets/pets.component';
+import { SearchComponent } from './pets/search/search.component'; // Keresés komponenst is importáljuk
+import { PetProfileComponent } from './pets/pets-profile/pet-profile.component';
 
 const routes: Routes = [
-  { path: '', component: AnimalsComponent }, // Az alapértelmezett útvonal
-  { path: 'cats', component: CatsComponent },
-  { path: 'dogs', component: DogsComponent },
+  { path: '', component: AnimalsComponent }, 
+  { path: 'pets', component: PetsComponent }, // Összes állat
+  { path: 'search', component: SearchComponent }, // Keresés
+  { path: 'pets/:id', component: PetProfileComponent }, // Profil oldal
 ];
 
 @NgModule({
@@ -15,4 +17,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AnimalsRoutingModule { }
-  
