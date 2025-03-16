@@ -2,36 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { PetsService } from 'src/app/services/pets.service';
 
 @Component({
-  selector: 'app-pet-list',
+  selector: 'app-pet-profile',
   templateUrl: './pet-profile.component.html',
   styleUrls: ['./pet-profile.component.css']
 })
 export class PetProfileComponent implements OnInit {
-  pets: any[] = [];
+
+  pets: any[] = []; // Az állatok tárolása
+  error: string = ''; // Hibaüzenet
 
   constructor(private petsService: PetsService) {}
 
   ngOnInit(): void {
-    this.petsService.getPets().subscribe(
-      (data) => {
-        console.log('Lekért adatok:', data);
-        this.pets = data; // Az állatok betöltése
+    this.petsService.getAllAnimals().subscribe(
+      (data: any[]) => {
+        this.pets = data;
       },
-      (error) => {
-        console.error('Hiba történt az adatok lekérésekor:', error);
+      (error: any) => {
+        this.error = 'Hiba történt az állatok betöltésekor!';
+        console.error(error);
       }
     );
   }
 
-
-  getSizeLabel(size_id: number): string {
-    switch (size_id) {
+  // Itt adjuk hozzá a getSizeLabel metódust
+  getSizeLabel(sizeId: number): string {
+    switch (sizeId) {
       case 1: return 'Kicsi';
       case 2: return 'Közepes';
       case 3: return 'Nagy';
       default: return 'Ismeretlen';
     }
   }
-
-  
 }

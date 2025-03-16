@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { PetsService } from '../../../services/pets.service'; // Továbbra is a PetsService
+import { PetsService } from 'src/app/services/pets.service';
+import { Router } from '@angular/router'; // Importáld a Router-t
 
 @Component({
   selector: 'app-pets',
@@ -8,18 +8,26 @@ import { PetsService } from '../../../services/pets.service'; // Továbbra is a 
   styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
-  pets: any[] = [];
 
-  constructor(private petsService: PetsService, private router: Router) {}
+  pets: any[] = []; // Az állatok tárolása
+  error: string = ''; // Hibaüzenet
+
+  constructor(private petsService: PetsService, private router: Router) {} // Add hozzá a router-t
 
   ngOnInit(): void {
-    this.petsService.getPets().subscribe(pets => {
-      console.log(pets); 
-      this.pets = pets; // Az összes kutya és macska
-    });
+    this.petsService.getAllAnimals().subscribe(
+      (pets: any[]) => {
+        this.pets = pets;
+      },
+      (error: any) => {
+        this.error = 'Hiba történt az állatok betöltésekor!';
+        console.error(error);
+      }
+    );
   }
 
-  goToProfile(petId: number) {
-    this.router.navigate(['/animals/pets', petId]); // Navigálás az adott állat profiljára
+  // Hozzáadjuk a goToProfile metódust, hogy a felhasználót az állat profiljára irányítsuk
+  goToProfile(petId: number): void {
+    this.router.navigate([`/pet-profile/${petId}`]); // Navigálunk az adott állat profiljára
   }
 }
