@@ -1,0 +1,76 @@
+<div>
+    <h2>Új állat felvétele</h2>
+    <form (ngSubmit)="onSubmit()">
+      <input [(ngModel)]="newAnimal.name" name="name" placeholder="Név">
+      
+      <select [(ngModel)]="newAnimal.type_id" name="type_id">
+        <option *ngFor="let type of types" [value]="type.id">{{ type.type }}</option>
+      </select>
+      
+      <select [(ngModel)]="newAnimal.size_id" name="size_id">
+        <option *ngFor="let size of sizes" [value]="size.id">{{ size.size }}</option>
+      </select>
+      
+      <select [(ngModel)]="newAnimal.gender_id" name="gender_id">
+        <option *ngFor="let gender of genders" [value]="gender.id">{{ gender.gender }}</option>
+      </select>
+      
+      <input type="date" [(ngModel)]="newAnimal.date_of_birth" name="date_of_birth">
+      <input type="date" [(ngModel)]="newAnimal.date_of_admission" name="date_of_admission">
+      <input [(ngModel)]="newAnimal.description" name="description" placeholder="Leírás">
+      <input type="checkbox" [(ngModel)]="newAnimal.adopted" name="adopted"> Örökbefogadva
+      <input [(ngModel)]="newAnimal.image" name="image" placeholder="Kép URL">
+      
+      <button type="submit">Hozzáadás</button>
+    </form>
+  </div>
+  
+  <div>
+    <h2>Állatok listája</h2>
+    <table>
+      <tr>
+        <th>Név</th>
+        <th>Típus</th>
+        <th>Méret</th>
+        <th>Nem</th>
+        <th>Születési dátum</th>
+        <th>Felvétel dátuma</th>
+        <th>Leírás</th>
+        <th>Örökbefogadva</th>
+        <th>Kép</th>
+        <th>Műveletek</th>
+      </tr>
+      <tr *ngFor="let animal of animals">
+        <td><input [(ngModel)]="animal.name" name="animal_name"></td>
+        
+        <td>
+          <select [(ngModel)]="animal.type_id" name="animal_type">
+            <option *ngFor="let type of types" [value]="type.id">{{ type.type }}</option>
+          </select>
+        </td>
+        
+        <td>
+          <select [(ngModel)]="animal.size_id" name="animal_size">
+            <option *ngFor="let size of sizes" [value]="size.id">{{ size.size }}</option>
+          </select>
+        </td>
+        
+        <td>
+          <select [(ngModel)]="animal.gender_id" name="animal_gender">
+            <option *ngFor="let gender of genders" [value]="gender.id">{{ gender.gender }}</option>
+          </select>
+        </td>
+        
+        <td><input type="date" [(ngModel)]="animal.date_of_birth" name="animal_dob"></td>
+        <td><input type="date" [(ngModel)]="animal.date_of_admission" name="animal_admission"></td>
+        <td><input [(ngModel)]="animal.description" name="animal_description"></td>
+        <td><input type="checkbox" [(ngModel)]="animal.adopted" name="animal_adopted"></td>
+        <td><img [src]="animal.image" width="50"></td>
+        <td>
+          <button (click)="updateAnimal(animal)">Módosítás</button>
+          <button (click)="deleteAnimal(animal.id)">Törlés</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  

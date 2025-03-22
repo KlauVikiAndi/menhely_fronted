@@ -5,20 +5,22 @@ import { RouterModule } from '@angular/router';
 import { AnimalsComponent } from './animals.component';
 import { PetsComponent } from './pets/pets.component';
 import { AnimalsRoutingModule } from './animals-routing.module';
-import { PetsService } from '../../services/pets.service'; // Relatív útvonal
+//import { PetsService } from '../../services/pets.service'; // Relatív útvonal
+import { AnimalsadminService } from '@app/services/animalsadmin.service';
 import { FormsModule } from '@angular/forms';
-import { SearchComponent } from './pets/search/search.component';
+//import { SearchComponent } from './pets/search/search.component';
+
 
 
 
 @NgModule({
-  declarations: [AnimalsComponent, PetsComponent, SearchComponent], // Ide deklarálod az összes komponenst
+  declarations: [AnimalsComponent, PetsComponent, ], // Ide deklarálod az összes komponenst
   imports: [
     CommonModule, 
     RouterModule,
     AnimalsRoutingModule,
     FormsModule,
   ],
-  providers: [PetsService] // Itt deklarálod a szolgáltatást
+  providers: [AnimalsadminService] // Itt deklarálod a szolgáltatást
 })
 export class AnimalsModule {}

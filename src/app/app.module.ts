@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,18 +16,26 @@ import { HowitworksComponent } from './pages/information/howitworks/howitworks.c
 import { AuthComponent } from './auth/auth.component';
 import { PetProfileComponent } from './pages/animals/pets/pets-profile/pet-profile.component'; // Csak ha közvetlenül itt is használni akarod
 import { SearchComponent } from './pages/animals/pets/search/search.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
-  const routes: Routes = [
-    {path:"register", component:AuthComponent},
-  ];
+const routes: Routes = [
+  { path: '', component: PetProfileComponent },
+  { path: 'register', component: AuthComponent },
+  { path: 'admin', component: AdminComponent },
+  // További útvonalak hozzáadása
+];
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent,
+    AdminComponent,
+    AuthComponent
+  /*   AuthComponent,
     PetProfileComponent,
+    AdminComponent, */
     //DogProfileComponent,
 
 
@@ -36,14 +44,17 @@ import { SearchComponent } from './pages/animals/pets/search/search.component';
     // Ha a CatsComponent vagy DogsComponent kell az AppModule-ba, akkor tartsd meg itt.
     // Ha nem kell, akkor vedd ki innen.
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([]),
+    RouterModule.forRoot(routes),
 
     InformationModule,
     AnimalsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
 
   ],

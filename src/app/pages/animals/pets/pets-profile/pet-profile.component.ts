@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PetsService } from 'src/app/services/pets.service';
+//import { PetsService } from 'src/app/services/pets.service';
+import { AnimalsadminService } from 'src/app/services/animalsadmin.service';
 
 @Component({
   selector: 'app-pet-profile',
@@ -11,10 +12,10 @@ export class PetProfileComponent implements OnInit {
   pets: any[] = []; // Az állatok tárolása
   error: string = ''; // Hibaüzenet
 
-  constructor(private petsService: PetsService) {}
+  constructor(private AnimalsadminService: AnimalsadminService) {}
 
   ngOnInit(): void {
-    this.petsService.getAllAnimals().subscribe(
+    this.AnimalsadminService.getAnimals().subscribe(
       (data: any[]) => {
         this.pets = data;
       },

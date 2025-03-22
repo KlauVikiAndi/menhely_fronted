@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PetsService } from 'src/app/services/pets.service';
+//import { PetsService } from 'src/app/services/pets.service';
+import { AnimalsadminService } from '@app/services/animalsadmin.service';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,7 @@ export class SearchComponent implements OnInit {
   searchQuery: string = ''; // A keresett állat neve
   searchResults: any[] = [];
 
-  constructor(private petsService: PetsService) {}
+  constructor(private AnimalsadminService: AnimalsadminService) {}
 
   ngOnInit(): void {
     // Amikor betöltődik a komponens, az állatok listáját lekérjük
@@ -19,7 +20,7 @@ export class SearchComponent implements OnInit {
 
   loadAnimals() {
     // Az állatok lekérése a backendről
-    this.petsService.getAllAnimals().subscribe(
+    this.AnimalsadminService.getAnimals().subscribe(
       (animals) => {
         this.searchResults = animals; // Az állatok megjelenítése
       },
@@ -29,8 +30,8 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  onSearch() {
-    this.petsService.searchPets(this.searchQuery).subscribe(
+/*   onSearch() {
+    this.AnimalsadminService.search(this.searchQuery).subscribe(
       results => {
         this.searchResults = results; // A keresési eredmények megjelenítése
       },
@@ -38,5 +39,5 @@ export class SearchComponent implements OnInit {
         console.error("Hiba történt a keresés közben:", error);
       }
     );
-  }
+  } */
 }

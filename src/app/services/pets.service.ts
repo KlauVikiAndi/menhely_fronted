@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -21,3 +21,4 @@ export class PetsService {
     return this.http.get<any[]>(`${this.apiUrl}/search`, { params });
   }
 }
+ */
