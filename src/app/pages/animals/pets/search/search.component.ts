@@ -9,7 +9,7 @@ import { AnimalsadminService } from '@app/services/animalsadmin.service';
 })
 export class SearchComponent implements OnInit {
   searchQuery: string = ''; // A keresett állat neve
-  searchResults: any[] = [];
+  searchResults: any = [];
 
   constructor(private AnimalsadminService: AnimalsadminService) {}
 

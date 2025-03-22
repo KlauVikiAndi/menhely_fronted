@@ -34,8 +34,8 @@ export class AnimalsadminService {
   constructor(private http: HttpClient) {}
 
   // Állatok CRUD műveletek
-  getAnimals(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/animals`);
+  getAnimals() {
+    return this.http.get(`${this.apiUrl}/animals`);
   }
 
   addAnimal(animal: any): Observable<any> {

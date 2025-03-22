@@ -15,13 +15,15 @@ export class PetProfileComponent implements OnInit {
   constructor(private AnimalsadminService: AnimalsadminService) {}
 
   ngOnInit(): void {
-    this.AnimalsadminService.getAnimals().subscribe(
-      (data: any[]) => {
+    this.AnimalsadminService.getAnimals().subscribe({
+      
+      next:(data: any) => {
         this.pets = data;
       },
-      (error: any) => {
+      error:(error: any) => {
         this.error = 'Hiba történt az állatok betöltésekor!';
         console.error(error);
+      }
       }
     );
   }

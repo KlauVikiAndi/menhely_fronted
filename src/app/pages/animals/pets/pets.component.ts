@@ -10,15 +10,15 @@ import { Router } from '@angular/router'; // Importáld a Router-t
 })
 export class PetsComponent implements OnInit {
 
-  pets: any[] = []; // Az állatok tárolása
+  pets: any = []; // Az állatok tárolása
   error: string = ''; // Hibaüzenet
 
   //constructor(private petsService: PetsService, private router: Router) {} // Add hozzá a router-t
   constructor(private AnimalsadminService: AnimalsadminService, private router: Router) {} 
   ngOnInit(): void {
     this.AnimalsadminService.getAnimals().subscribe(
-      (pets: any[]) => {
-        this.pets = pets;
+      (pets: any) => {
+        this.pets = pets.data;
       },
       (error: any) => {
         this.error = 'Hiba történt az állatok betöltésekor!';

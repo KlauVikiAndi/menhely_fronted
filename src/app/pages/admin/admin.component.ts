@@ -7,11 +7,11 @@ import { AnimalsadminService } from 'src/app/services/animalsadmin.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  animals: any[] = [];
-  pets: any[] = [];
-  types: any[] = [];
-  genders: any[] = [];
-  sizes: any[] = [];
+  animals: any = [];
+  pets: any = [];
+  types: any = [];
+  genders: any = [];
+  sizes: any = [];
   loading: boolean = true;
 
   newAnimal = {
