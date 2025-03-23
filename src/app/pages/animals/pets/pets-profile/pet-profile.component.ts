@@ -14,6 +14,7 @@ export class PetProfileComponent implements OnInit {
 
   constructor(private AnimalsadminService: AnimalsadminService) {}
 
+  // így kell használni már! next:, error:
   ngOnInit(): void {
     this.AnimalsadminService.getAnimals().subscribe({
       
@@ -29,12 +30,5 @@ export class PetProfileComponent implements OnInit {
   }
 
   // Itt adjuk hozzá a getSizeLabel metódust
-  getSizeLabel(sizeId: number): string {
-    switch (sizeId) {
-      case 1: return 'Kicsi';
-      case 2: return 'Közepes';
-      case 3: return 'Nagy';
-      default: return 'Ismeretlen';
-    }
-  }
+ 
 }

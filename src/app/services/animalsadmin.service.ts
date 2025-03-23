@@ -38,15 +38,15 @@ export class AnimalsadminService {
     return this.http.get(`${this.apiUrl}/animals`);
   }
 
-  addAnimal(animal: any): Observable<any> {
+  addAnimal(animal: any) {
     return this.http.post<any>(`${this.apiUrl}/newanimal`, animal);
   }
 
-  updateAnimal(animal: any): Observable<any> {
+  updateAnimal(animal: any) {
     return this.http.put<any>(`${this.apiUrl}/updateanimal`, animal);
   }
 
-  deleteAnimal(id: number): Observable<any> {
+  deleteAnimal(id: number) {
     return this.http.delete<any>(`${this.apiUrl}/deleteanimal/${id}`);
   }
 
@@ -61,5 +61,19 @@ export class AnimalsadminService {
 
   getSizes(): Observable<ApiResponse<Size>> {
     return this.http.get<ApiResponse<Size>>(`${this.apiUrl}/sizes`);
+  }
+
+
+  // **Kedvencek kezelése**
+  addToFavorites(petId: number) {
+    return this.http.post(`${this.apiUrl}/addfavorite`, { name: petId });
+  }
+
+  removeFromFavorites(petId: number) {
+    return this.http.delete(`${this.apiUrl}/removefavorite/${petId}`);
+  }
+
+  getUserFavorites() {
+    return this.http.get(`${this.apiUrl}/getfavorites`);
   }
 }

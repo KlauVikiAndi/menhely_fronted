@@ -1,7 +1,35 @@
 <div class="animals-grid">
-  <div class="animal-card" *ngFor="let pet of pets" (click)="goToProfile(pet.id)">
+  <div class="animal-card" *ngFor="let pet of pets">
     <img [src]="pet.image" [alt]="pet.name">
-    <p>{{ pet.name }}</p>
-    <p>{{ pet.type.name === 'dog' ? 'Kutya' : 'Macska' }}</p> <!-- Itt jelenítheted meg, hogy kutya vagy macska -->
+    <div class="card-content">
+      <p><strong>{{ pet.name }}</strong></p>
+      <p><strong>Típus:</strong> {{ pet.type }}</p>
+      <p><strong>Nem:</strong> {{ pet.gender }}</p>
+      <p><strong>Méret:</strong> {{ pet.size }}</p>
+      <p><strong>Leírás:</strong> {{ pet.description }}</p>
+
+      
+      <div class="buttons">
+         <!-- Kedvenc hozzáadása gomb -->
+  <button class="icon heart-icon" (click)="addToFavorites(pet.id)">
+    <i class="fa fa-heart"></i> <!-- Szívecske ikon -->
+    <p>Kedvenc</p>
+  </button>
+
+        <!-- Ha kedvenc, akkor "Remove from Favorites" gomb -->
+        <button *ngIf="isFavorite(pet.id)" (click)="removeFromFavorites(pet.id)">
+          <i class="fas fa-heart-broken"></i> <!-- Törött szívecske ikon -->
+        </button>
+
+      
+
+          <!-- Naptár ikon (időpont foglalás) -->
+  <button class="icon calendar-icon"(click)="bookAppointment(pet.id)">
+    <i class="fa fa-calendar"></i> 
+    <p>Foglalás</p>
+  </button>
+
+  </div>
+   
   </div>
 </div>

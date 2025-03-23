@@ -27,7 +27,7 @@ import { SearchComponent } from './pages/animals/pets/search/search.component';
       children: [
        // { path: '', redirectTo: 'pets', pathMatch: 'full' },
         { path: 'pets', component: PetsComponent },
-        { path: 'pets/:id', component: PetProfileComponent }, // Dinamikus útvonal
+       /*  { path: 'pets/:id', component: PetProfileComponent }, // Dinamikus útvonal */
         { path: 'search', component: SearchComponent },
       ] 
     },

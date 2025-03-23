@@ -1,29 +1,85 @@
 .animals-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Rugalmas elrendezés */
+    grid-template-columns: repeat(4, 1fr); /* Rugalmas elrendezés */
     gap: 20px; /* Térköz a csempék között */
     padding: 20px;
     margin-top: 80px;
   }
   
   .animal-card {
+    display: flex;
+    flex-direction: column; /* A tartalom egymás alatt legyen */
+    justify-content: space-between; /* A kép fent, a szöveg lent */
     background-color: #f4f4f4;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 10px;
+    height: 100%; /* Az összes kártya azonos magasságú */
   }
   
   .animal-card img {
     width: 100%; /* A kép kitölti a csempe szélességét */
     height: auto; /* A kép magassága automatikusan igazodik */
-    border-radius: 5px;
+    border-radius: 8px;
+    object-fit: cover; /* A kép ne nyúljon szét, hanem vágja le a kilógó részt */
   }
   
   .animal-card p {
     font-size: 16px;
     margin-top: 10px;
     color: #333;
+    text-align: center;
   }
   
+  .animal-card:hover {
+    transform: scale(1.05); /* Ha fölé viszed az egeret, kicsit nagyobb lesz */
+  }
+
+  .animal-card .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* A szöveg mindig az alján legyen */
+    flex-grow: 1; /* A tartalom kitöltse a helyet, ha szükséges */
+    padding: 10px;
+  }
+
+  .animal-card .icon-bar {
+    display: flex;
+    justify-content: space-between;  /* Bal és jobb szélen elhelyezkedő ikonok */
+    align-items: center;  /* Az ikonok vertikálisan középre kerülnek */
+    gap: 100px;
+    padding: 10px 20px;
+  
+  }
+
+
+
+  /* Az összes gomb alapértelmezett stílusa */
+  button.icon {
+  all: unset;  /* Alapértelmezett stílusok törlése (pl. gomb háttér, szegély) */
+  cursor: pointer;  /* Az egér mutatója mutassa, hogy kattintható */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;  /* Nincs háttér szín */
+  border: none;  /* Nincs szegély */
+  padding: 10px; /* Párna a gombon belül */
+  transition: transform 0.3s ease; /* Gomb animáció */
+}
+  
+  button.heart-icon i {
+    color: #ff5a5f; /* Szív ikon színe */
+  }
+  
+  button.calendar-icon i {
+    color: #5a5a5a; /* Naptár ikon színe */
+  }
+  
+
+  button p {
+    font-size: 12px;
+    color: #333;
+    margin-top: 5px;
+  }
