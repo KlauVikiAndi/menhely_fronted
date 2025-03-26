@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
+
+interface LoginResponse {
+  token: string;
+  message?: string;
+}
+
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -22,23 +29,29 @@ export class AuthComponent {
 
   login() {
     this.authService.login(this.name, this.password).subscribe(
-      response => {
-        if (response.token) {
-          localStorage.setItem('token', response.token);
+      (response: any) => {
+        console.log("Bejelentkezési válasz:", response); // ✅ Nézzük meg, mit küld a backend
+  
+        if (response.success && response.data && response.data.token) { // 🔍 Token kiolvasása a data-ból
+          localStorage.setItem('token', response.data.token); // ✅ Token mentése
+          console.log("Token elmentve:", localStorage.getItem('token')); // ✅ Ellenőrzés
+          
           this.successMessage = 'Sikeres bejelentkezés!';
-          this.errorMessage = ''; // Töröljük a hibaüzenetet, ha van
+          this.errorMessage = ''; 
           this.router.navigate(['/dashboard']);
+  
           setTimeout(() => {
-            this.successMessage = ''; // Sikerüzenet eltüntetése 3 másodperc múlva
+            this.successMessage = ''; 
           }, 3000);
         } else {
           this.errorMessage = response.message || 'Bejelentkezés sikertelen';
-          this.successMessage = ''; // Sikerüzenet törlése, ha nem sikerült
+          this.successMessage = ''; 
         }
       },
       error => {
+        console.error("Hiba a bejelentkezéskor:", error);
         this.errorMessage = error.error.message || 'Hiba történt a bejelentkezés során';
-        this.successMessage = ''; // Sikertelen bejelentkezés esetén sikerüzenet törlése
+        this.successMessage = ''; 
       }
     );
   }

@@ -32,7 +32,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AdminComponent,
-    AuthComponent
+   AuthComponent
   /*   AuthComponent,
     PetProfileComponent,
     AdminComponent, */

@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Az API válaszainak típusai
@@ -24,6 +24,7 @@ interface Size {
   id: number;
   size: string;
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -65,8 +66,10 @@ export class AnimalsadminService {
 
 
   // **Kedvencek kezelése**
-  addToFavorites(petId: number) {
-    return this.http.post(`${this.apiUrl}/addfavorite`, { name: petId });
+  addToFavorites(petId: number, headers: HttpHeaders) {
+    console.log('API URL:', this.apiUrl);
+    return this.http.post(`${this.apiUrl}/addfavorite`, { name: petId },{ headers });
+
   }
 
   removeFromFavorites(petId: number) {
@@ -76,4 +79,7 @@ export class AnimalsadminService {
   getUserFavorites() {
     return this.http.get(`${this.apiUrl}/getfavorites`);
   }
+
+
+
 }

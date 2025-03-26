@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+interface LoginResponse {
+  token: string;
+  message?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +21,7 @@ export class AuthService {
   }
 
   // Bejelentkezési metódus
-  login(name: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { name, password });
+  login(name: string, password: string) {
+    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { name, password });
   }
 }
